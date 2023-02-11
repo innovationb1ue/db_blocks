@@ -1,0 +1,1 @@
+add_library(sstable sstable.cpp sstable.h sstable_index.cpp)
