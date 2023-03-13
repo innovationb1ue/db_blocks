@@ -17,16 +17,16 @@ include_directories(src)
 
 # executables
 add_executable(db_blocks src/main.cpp)
-add_executable(test src/test.cpp)
 
-add_executable(waltest src/wal_test.cpp)
-
-# get the library get built
+# get the libraries get built
 add_subdirectory(src/sstable)
 add_subdirectory(src/page)
 add_subdirectory(src/data_structure)
 add_subdirectory(src/)
 add_subdirectory(src/wal)
+
+# test directory
+add_subdirectory(test)
 
 # link the new library with the executable target
 target_link_libraries(db_blocks PUBLIC sstable)
@@ -42,6 +42,5 @@ target_include_directories(db_blocks PUBLIC
         )
 
 
-target_link_libraries(waltest PRIVATE wal)
 
 
