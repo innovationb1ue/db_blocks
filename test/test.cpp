@@ -21,6 +21,12 @@ struct Printer { // generic functor
     }
 };
 
+class MyTestClass {
+    bool testNeverFail() {
+        return true;
+    }
+};
+
 int main() {
     std::vector<int> v = {1, 2, 3};
     std::for_each(v.begin(), v.end(), Printer(std::cout));
