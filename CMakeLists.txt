@@ -26,7 +26,6 @@ add_executable(main src/main.cpp)
 # get the libraries get built
 add_subdirectory(src/)
 add_subdirectory(src/confs)
-add_subdirectory(src/sstable)
 add_subdirectory(src/page)
 add_subdirectory(src/data_structure)
 
@@ -34,8 +33,7 @@ add_subdirectory(src/data_structure)
 add_subdirectory(test)
 
 # link the new library with the executable target
-target_link_libraries(main PUBLIC sstable)
-target_link_libraries(main PUBLIC data_structure)
+target_link_libraries(main INTERFACE data_structure)
 target_link_libraries(main PUBLIC page)
 target_link_libraries(main PRIVATE spdlog)
 target_link_libraries(main PRIVATE toml11)
@@ -52,17 +50,9 @@ target_include_directories(main PUBLIC
 enable_testing()
 include(CTest)
 
-# testing binary
-add_executable(cpp_test test/test.cpp)
 
-# enable testing functionality
-enable_testing()
 
-# define tests
-add_test(
-        NAME cpp_test
-        COMMAND $<TARGET_FILE:cpp_test>
-)
+
 
 
 
