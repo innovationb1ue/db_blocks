@@ -1,0 +1,2 @@
+add_library(concurrency_manager INTERFACE concurrency_manager.h)
+add_library(lock_manager INTERFACE lock_manager.h)

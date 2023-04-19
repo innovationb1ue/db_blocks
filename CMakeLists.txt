@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.24)
 project(db_blocks)
 
-set(ENV{lib_archive} no)
 set(CMAKE_CXX_STANDARD 17)
+
 # this control whether enable logger
 set(use_logger ON)
 
@@ -22,13 +22,15 @@ include_directories(src)
 # executables
 add_executable(main src/main.cpp)
 
-
 # get the libraries get built
 add_subdirectory(src/)
 add_subdirectory(src/confs)
 add_subdirectory(src/page)
 add_subdirectory(src/data_structure)
+add_subdirectory(src/concurrency)
+add_subdirectory(src/db)
 
+enable_testing()
 # test directory
 add_subdirectory(test)
 
@@ -43,12 +45,6 @@ target_include_directories(main PUBLIC
         "${PROJECT_BINARY_DIR}"
         "${PROJECT_SOURCE_DIR}/src/"
         )
-
-
-# test
-
-enable_testing()
-include(CTest)
 
 
 

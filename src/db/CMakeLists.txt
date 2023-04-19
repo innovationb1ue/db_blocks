@@ -1,0 +1,1 @@
+add_library(db INTERFACE db.h)
